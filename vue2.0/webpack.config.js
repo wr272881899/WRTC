@@ -31,6 +31,12 @@ module.exports = {
         loader: 'file-loader'
       },
       {
+        test: /\.(less|scss|css)$/,
+        loader: ExtractTextPlugin.extract(
+          { fallback: 'style-loader', use: 'css-loader!sass-loader' }
+        )
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
         loader: 'file-loader',
         query: {
